@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+  gae-go-sample:
+    platform: linux/x86_64
+    image: gae-go-sample:latest
+    build:
+      context: ./
+      dockerfile: ./build/Dockerfile
+    command: ./gae-go-sample-amd64
+    env_file:
+      - .env
+    container_name: gae-go-sample
+    ports:
+      - "8989:${PORT}"
+    user: app
